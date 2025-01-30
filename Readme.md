@@ -16,8 +16,9 @@ If you're using a lazy plugins folder
 
 ```lua
 -- nvim-copy-diagnostics.lua
+
 return {
-  'NStafford2/nvim-copy-diagnostics'
+  'https://github.com/NickStafford2/nvim-copy-diagnostics.git'
 }
 ```
 
