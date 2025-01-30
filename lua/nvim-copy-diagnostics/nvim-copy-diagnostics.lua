@@ -1,7 +1,8 @@
 -- myplugin/diagnostics.lua
-local M = {}
 
-function M.setup()
+local H = {}
+
+function H.setup()
 	vim.keymap.set("n", "<Leader>cy", function()
 		print(1)
 		local diagnostics = vim.diagnostic.get(0, {})
@@ -24,4 +25,4 @@ function M.setup()
 	end)
 end
 
-return M
+return H
