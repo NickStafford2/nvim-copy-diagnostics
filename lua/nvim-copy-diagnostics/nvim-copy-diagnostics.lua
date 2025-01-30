@@ -10,11 +10,11 @@ local M = {}
 M.config = config
 
 M.setup = function(args)
+	local opts = { desc = "Copy Diagnostics" }
 	vim.keymap.set("n", "<Leader>cy", function()
-		print(1)
 		local diagnostics = vim.diagnostic.get(0, {})
 		if not diagnostics or #diagnostics == 0 then
-			print("No next diagnostic")
+			print("No Diagnostic under cursor.")
 			return
 		end
 
@@ -29,11 +29,10 @@ M.setup = function(args)
 		-- Copy to system clipboard
 		vim.fn.setreg("+", diagnostic_text)
 		print("Copied diagnostics to clipboard.")
-	end)
+	end, opts)
 
 	-- M.config = vim.tbl_deep_extend("force", M.config, args or {})
 	--
-	-- local opts = { desc = "Copy Diagnostics" }
 	--
 	-- local copyDiagnostics = function()
 	-- 	local diagnostics = vim.diagnostic.get(0, {})
