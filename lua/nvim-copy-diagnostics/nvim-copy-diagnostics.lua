@@ -29,7 +29,7 @@ M.setup = function(args)
 		-- Copy to system clipboard
 		vim.fn.setreg("+", diagnostic_text)
 		print("Copied diagnostics to clipboard.")
-	end, opts)
+	end)
 
 	-- M.config = vim.tbl_deep_extend("force", M.config, args or {})
 	--
