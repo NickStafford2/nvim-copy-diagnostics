@@ -20,3 +20,9 @@ return {
   'NStafford2/nvim-copy-diagnostics'
 }
 ```
+
+## 🔑 Usage
+
+1. Place your cursor on the code causing the error/warning/message.
+2. Press `<leader>cy`
+3. Profit
