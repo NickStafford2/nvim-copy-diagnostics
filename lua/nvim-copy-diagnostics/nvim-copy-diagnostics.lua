@@ -1,13 +1,21 @@
 -- myplugin/diagnostics.lua
 
-local H = {}
+---@class Config
+local config = {}
 
-function H.setup()
+---@class CopyModule
+local M = {}
+
+---@type Config
+M.config = config
+
+M.setup = function(args)
+	M.config = vim.tbl_deep_extend("force", M.config, args or {})
+
 	vim.keymap.set("n", "<Leader>cy", function()
-		print(1)
 		local diagnostics = vim.diagnostic.get(0, {})
 		if not diagnostics or #diagnostics == 0 then
-			print("No next diagnostic")
+			vim.notify("No next diagnostic")
 			return
 		end
 
@@ -19,10 +27,11 @@ function H.setup()
 
 		-- Join the messages into a single string
 		local diagnostic_text = table.concat(diagnostic_messages, "\n")
+
 		-- Copy to system clipboard
 		vim.fn.setreg("+", diagnostic_text)
-		print("Copied diagnostics to clipboard.")
+		vim.notify("Copied diagnostics to clipboard.")
 	end)
 end
 
-return H
+return M

@@ -1,3 +1,3 @@
-if exists('g:nvim-copy-diagnostics') | finish | endif
-let g:loaded_nvim_tiny_diagnostics= 1
-lua require('nvim-copy-diagnostics').setup()
+vim.api.nvim_create_user_command("NvimCopyDiagnostics", function()
+	require("nvim-copy-diagnostics").setup()
+end, {})
