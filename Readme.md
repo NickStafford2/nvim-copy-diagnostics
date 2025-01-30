@@ -8,7 +8,9 @@ If you're using [lazy.nvim](https://github.com/folke/lazy.nvim):
 
 ```lua
 require('lazy').setup({
-  { 'username/myplugin' }
+  {
+  'https://github.com/NickStafford2/nvim-copy-diagnostics.git'
+ }
 })
 ```
 
